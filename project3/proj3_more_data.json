@@ -1,0 +1,106 @@
+[
+    {
+        "engine":"1.5 TFSI",
+        "displacement":1498,
+        "horsepower":150,
+        "fuel_type":"gasoline",
+        "cylinders":4,
+        "emissions_class":"Euro 6d"
+    },
+    {
+        "engine":"2.0L TwinPower Turbo",
+        "displacement":1998,
+        "horsepower":184,
+        "fuel_type":"gasoline",
+        "cylinders":4,
+        "emissions_class":"Euro 6d"
+    },
+    {
+        "engine":"1.5 TSI",
+        "displacement":1498,
+        "horsepower":150,
+        "fuel_type":"gasoline",
+        "cylinders":4,
+        "emissions_class":"Euro 6d"
+    },
+    {
+        "engine":"1.5 dCi",
+        "displacement":1461,
+        "horsepower":115,
+        "fuel_type":"diesel",
+        "cylinders":4,
+        "emissions_class":"Euro 6d-TEMP"
+    },
+    {
+        "engine":"0.9 TwinAir",
+        "displacement":875,
+        "horsepower":85,
+        "fuel_type":"gasoline",
+        "cylinders":2,
+        "emissions_class":"Euro 6d-TEMP"
+    },
+    {
+        "engine":"1.2 PureTech",
+        "displacement":1199,
+        "horsepower":130,
+        "fuel_type":"gasoline",
+        "cylinders":3,
+        "emissions_class":"Euro 6d"
+    },
+    {
+        "engine":"1.2 Turbo",
+        "displacement":1197,
+        "horsepower":110,
+        "fuel_type":"gasoline",
+        "cylinders":4,
+        "emissions_class":"Euro 6d-TEMP"
+    },
+    {
+        "engine":"2.3L EcoBoost",
+        "displacement":2261,
+        "horsepower":350,
+        "fuel_type":"gasoline",
+        "cylinders":4,
+        "emissions_class":"Euro 6d-TEMP"
+    },
+    {
+        "engine":"2.0 TDI",
+        "displacement":1968,
+        "horsepower":150,
+        "fuel_type":"diesel",
+        "cylinders":4,
+        "emissions_class":"Euro 6d-TEMP"
+    },
+    {
+        "engine":"3.0L Twin Turbo V6",
+        "displacement":3000,
+        "horsepower":450,
+        "fuel_type":"gasoline",
+        "cylinders":6,
+        "emissions_class":"Euro 6"
+    },
+    {
+        "engine":"45 TFSI quattro",
+        "displacement":1984,
+        "horsepower":245,
+        "fuel_type":"gasoline",
+        "cylinders":4,
+        "emissions_class":"Euro 6"
+    },
+    {
+        "engine":"T8 Polestar Engineered",
+        "displacement":1969,
+        "horsepower":415,
+        "fuel_type":"hybrid",
+        "cylinders":4,
+        "emissions_class":"Euro 6"
+    },
+    {
+        "engine":"1.6 THP",
+        "displacement":1598,
+        "horsepower":165,
+        "fuel_type":"gasoline",
+        "cylinders":4,
+        "emissions_class":"Euro 5"
+    }
+]

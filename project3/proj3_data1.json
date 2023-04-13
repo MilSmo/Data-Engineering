@@ -1,0 +1,62 @@
+[
+    {
+        "make":"Audi",
+        "model":"A3",
+        "body_type":"hatchback",
+        "doors":5.0,
+        "top_speed":220,
+        "acceleration":7.2,
+        "fuel_consumption":6.0,
+        "engine":"1.5 TFSI"
+    },
+    {
+        "make":"BMW",
+        "model":"3 Series",
+        "body_type":"sedan",
+        "doors":4.0,
+        "top_speed":240,
+        "acceleration":6.2,
+        "fuel_consumption":null,
+        "engine":"2.0L TwinPower Turbo"
+    },
+    {
+        "make":"Volkswagen",
+        "model":"Golf",
+        "body_type":"hatchback",
+        "doors":5.0,
+        "top_speed":210,
+        "acceleration":8.0,
+        "fuel_consumption":5.0,
+        "engine":"1.5 TSI"
+    },
+    {
+        "make":"Renault",
+        "model":"Clio",
+        "body_type":"hatchback",
+        "doors":5.0,
+        "top_speed":190,
+        "acceleration":11.0,
+        "fuel_consumption":6.5,
+        "engine":"1.5 dCi"
+    },
+    {
+        "make":"Fiat",
+        "model":"500",
+        "body_type":"hatchback",
+        "doors":3.0,
+        "top_speed":160,
+        "acceleration":12.9,
+        "fuel_consumption":null,
+        "engine":"0.9 TwinAir"
+    },
+    {
+        "make":"Peugeot",
+        "model":"208",
+        "body_type":"hatchback",
+        "doors":null,
+        "top_speed":190,
+        "acceleration":9.9,
+        "fuel_consumption":5.0,
+        "engine":"1.2 PureTech"
+    }
+]

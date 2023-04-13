@@ -1,0 +1,62 @@
+[
+    {
+        "make":"Audi",
+        "model":"Q5",
+        "body_type":"SUV",
+        "doors":5.0,
+        "top_speed":237,
+        "acceleration":6.3,
+        "fuel_consumption":null,
+        "engine":"45 TFSI quattro"
+    },
+    {
+        "make":"Volvo",
+        "model":"S60",
+        "body_type":"sedan",
+        "doors":4.0,
+        "top_speed":250,
+        "acceleration":6.2,
+        "fuel_consumption":6.6,
+        "engine":"T8 Polestar Engineered"
+    },
+    {
+        "make":"Renault",
+        "model":"Megane",
+        "body_type":"hatchback",
+        "doors":5.0,
+        "top_speed":215,
+        "acceleration":7.9,
+        "fuel_consumption":5.4,
+        "engine":"1.5 dCi"
+    },
+    {
+        "make":"Peugeot",
+        "model":"3008",
+        "body_type":"SUV",
+        "doors":5.0,
+        "top_speed":210,
+        "acceleration":9.2,
+        "fuel_consumption":5.6,
+        "engine":"1.6 THP"
+    },
+    {
+        "make":"Fiat",
+        "model":"Panda",
+        "body_type":"hatchback",
+        "doors":5.0,
+        "top_speed":165,
+        "acceleration":14.5,
+        "fuel_consumption":5.0,
+        "engine":"1.2 8v"
+    },
+    {
+        "make":"Fiat",
+        "model":"Punto",
+        "body_type":"hatchback",
+        "doors":3.0,
+        "top_speed":170,
+        "acceleration":12.5,
+        "fuel_consumption":5.2,
+        "engine":"1.2 8v"
+    }
+]

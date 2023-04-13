@@ -1,0 +1,36 @@
+{
+    "concat_columns": [
+        "make",
+        "model",
+        "engine"
+    ],
+    "id_vars": [
+        "make",
+        "model"
+    ],
+    "join_column": "engine",
+    "int_columns": [
+        "doors",
+        "displacement",
+        "horsepower",
+        "cylinders"
+    ],
+    "grouping_column": "make",
+    "pivot_index": "make",
+    "pivot_columns": "fuel_type",
+    "pivot_values": "fuel_consumption",
+    "aggregations": [
+        [
+            "displacement",
+            "min"
+        ],
+        [
+            "displacement",
+            "max"
+        ],
+        [
+            "fuel_consumption",
+            "mean"
+        ]
+    ]
+}
