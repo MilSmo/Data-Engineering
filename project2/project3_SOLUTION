@@ -1,0 +1,71 @@
+
+import pandas as pd
+import pickle
+initial_df = pd.read_csv(r'proj2_data.csv', sep ='|', decimal = ',')
+
+initial_df.to_pickle(f"proj2_ex01.pkl")
+df_2 = initial_df.copy()
+
+with open(r"proj2_scale.txt", 'r') as file:
+    data_txt = file.read()
+
+scale=data_txt.split('\n')
+
+# sep=None, engine='python'
+
+scale_dict={}
+i = 1
+for val in scale:
+    scale_dict[val]=i
+    i+=1
+
+for col in df_2.columns:
+    if df_2[col].isin(scale).any():
+        df_2[col] = [scale_dict[i] for i in df_2[col]]
+
+df_2.to_pickle(f"proj2_ex02.pkl")
+
+df_3 = initial_df.copy()
+
+grade_categories = data_txt.split('\n')
+
+for col in df_3.columns:
+    if df_3[col].isin(grade_categories).any():
+        df_3[col] = pd.Categorical(df_3[col],categories = grade_categories)
+df_3.to_pickle(f"proj2_ex03.pkl")
+    
+
+df_5= pd.DataFrame()
+df_6= pd.DataFrame()
+
+for col in initial_df.columns:
+    if initial_df[col].dtype == object:
+        num = initial_df[col].str.extract(r'(-?\d+(?:[.,]\d+)?)', expand=False)
+        #regex replace []
+        df_5[col]=num
+        
+
+        
+for col in df_5.columns:
+    if df_5[col].notnull().values.any():
+        df_6[col] = df_5[col].str.replace(',', '.').astype(float)
+        
+df_6.to_pickle(f"proj2_ex04.pkl")
+
+col_list = []
+
+for col in initial_df.columns:
+    if initial_df[col].dtype == object and initial_df[col].nunique()<10 and initial_df[col].str.islower().all() and not initial_df[col].isin(scale).any():
+        col_list.append(col)
+
+encoded_dfs = []
+encoded_dfs.clear()
+
+for val in col_list:
+    encoded_df = pd.get_dummies(initial_df[val])
+    encoded_dfs.append(encoded_df)
+    encoded_df.to_pickle(f"proj2_ex05_{len(encoded_dfs)}.pkl")
+
+final_df = pd.concat(encoded_dfs, axis=1)
+    
+
