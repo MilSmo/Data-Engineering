@@ -1,0 +1,125 @@
+
+import pandas as pd
+import json
+import numpy as np
+
+df = pd.read_csv(r'lab1_ex01.csv')
+
+#zad1
+jsonDict = dict()
+
+jsonDict.clear()
+i=0
+for col in df.columns:
+    jsonDict[i]={}
+    jsonDict[i]["name"]=col
+    jsonDict[i]["missing"]=round(df[col].isnull().sum()/len(df[col]),2)
+    if df[col].dtype =="float64":
+        jsonDict[i]["type"] = "float"
+    elif df[col].dtype =='int64':
+        jsonDict[i]["type"] = "int"
+    else:
+        jsonDict[i]["type"] = "other"
+    i+=1
+
+table=[]
+for d in jsonDict.values():
+    table.append(d)
+json_object = json.dumps(table, indent=3)
+
+    
+with open('ex01_fields.json', 'w') as outfile:
+    outfile.write(json_object)
+
+
+#zad2
+jsonDict2={}
+i=0
+
+
+for col in df.columns:
+    if df[col].dtype.kind in 'iufc':
+        jsonDict2[col]={}
+        jsonDict2[col]['count']=df[col].notnull().sum()
+        jsonDict2[col]['mean']=df[col].mean()
+        jsonDict2[col]['std']=df[col].std()
+        jsonDict2[col]['min']=df[col].min()
+        jsonDict2[col]['25%']=df[col].quantile(0.25)
+        jsonDict2[col]['50%']=df[col].quantile(0.5)
+        jsonDict2[col]['75%']=df[col].quantile(0.75)
+        jsonDict2[col]['max']=df[col].max()
+    else:
+        jsonDict2[col]={}
+        jsonDict2[col]['count']=df[col].notnull().sum()
+        jsonDict2[col]['unique']=df[col].nunique()
+        if df[col].value_counts().values[0]>1:
+            jsonDict2[col]["top"]=df[col].mode().values[0]
+            jsonDict2[col]["freq"]=df[col].value_counts().values[0]
+        else:
+            jsonDict2[col]["top"]=None
+            jsonDict2[col]["freq"]=None
+          
+    i+=1
+    
+def np_encoder(object):
+    if isinstance(object, np.generic):
+        return object.item()
+jsonStats=json.dumps(jsonDict2,default=np_encoder,indent=7)
+    
+with open('ex02_stats.json', 'w') as outfile:
+    outfile.write(jsonStats)
+
+#zad3
+def normalize_column_name(name):
+    return ''.join(c for c in name if c.isalnum() or c == ' ').lower().replace(' ', '_')
+for col in df.columns:
+    df.rename(columns={col:normalize_column_name(col)}, inplace=True)
+
+df.to_csv('ex03_columns.csv', index=False)
+
+#zad4
+
+df.to_excel("ex04_excel.xlsx",index=False)
+df.to_json('ex04_json.json', orient='records', indent=8)
+df.to_pickle('ex04_pickle.pkl')
+
+#zad5
+df = pd.read_pickle(r"lab1_ex05.pkl")
+col2_3 = df[df.columns[1:3]]
+dfV = col2_3[col2_3.index.str.startswith('v')].replace(np.nan,'',regex=True)
+dfV.to_markdown('ex05_table.md')
+
+#zad6
+
+with open(r"lab1_ex06.json") as f:
+    data = json.load(f)
+
+
+def flatten_json(y):
+    out = {}
+
+    def flatten(x, name=''):
+        if type(x) is dict:
+            for a in x:
+                flatten(x[a], name + a + '.')
+        elif type(x) is list:
+            i = 0
+            for a in x:
+                flatten(a, name + '.')
+                i += 1
+        else:
+            out[name[:-1]] = x
+
+    flatten(y)
+    return out
+
+
+df = pd.DataFrame()
+for d in data:
+    flattened_data = flatten_json(d)
+    df = df.append(flattened_data, ignore_index=True)
+
+df.to_pickle('ex06_pickle.pkl')
+
+
+
